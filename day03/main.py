@@ -23,71 +23,24 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 print("Welcome to Treasure Island.")
 print("Your mission is to find the treasure.") 
 
-first = input("Left or right?\nType Right/Left: ").lower()
-if first == "right":
-  print('''                      -     =    .--._
-                - - ~_=  =~_- = - `.  `-.
-              ==~_ = =_  ~ -   =  .-'    `.
-            --=~_ - ~  == - =   .'      _..:._
-           ---=~ _~  = =-  =   `.  .--.'      `.
-          --=_-=- ~= _ - =  -  _.'  `.      .--.:
-            -=_~ -- = =  ~-  .'      :     :    :
-             -=-_ ~=  = - _-`--.     :  .--:    D
-               -=~ _=  =  -~_=  `;  .'.:   ,`---'@
-             --=_= = ~-   -=   .'  .'  `._ `-.__.'
-            --== ~_ - =  =-  .'  .'     _.`---'
-           --=~_= = - = ~  .'--''   .   `-..__.--.
-             --==~ _= - ~-=  =-~_-   `-..___(  ===;
-          --==~_==- =__ ~-=  - -    .'       `---'
-  ''')
-  print("Sonic got the treasure before you, try again.")
-elif first == 'left':
-  print('''
-   _                                                           
-  | |                                                          
-  | |_ _ __ ___  __ _ ___ _   _ _ __ ___ _ __ ___   __ _ _ __  
-  | __| '__/ _ \/ _` / __| | | | '__/ _ \ '_ ` _ \ / _` | '_ \ 
-  | |_| | |  __/ (_| \__ \ |_| | | |  __/ | | | | | (_| | |_) |
-  \__|_|  \___|\__,_|___/\__,_|_|  \___|_| |_| |_|\__,_| .__/ 
-                                                        | |    
-                                                        |_| 
-  ''')
-  print("Nice, you made it to the next level!")
+#https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
 
-  second = input("Your map shows that you need to get to Treasure Island, you can wait to board a ship or swim accross the sea, pick one.\nType Swim/Wait: ").lower()
-  if second == "swim":
-    print('''
-                    (`.
-                    \ `.
-                      )  `._..---._
-    \`.       __...---`         o  )
-    \ `._,--'           ,    ___,'
-      ) ,-._          \  )   _,-'
-    /,'    ``--.._____\/--''
-        ''')
-    print("Unfortunately, you were eaten by a Great White Shark, try again.")
-  elif second == "wait":
-    print("Nice, you made it to the next level, you're pretty good at this!")
-    print ("Welcome to:")
-    print ('''
-     _                                     _     _                 _ 
-    | |                                   (_)   | |               | |
-    | |_ _ __ ___  __ _ ___ _   _ _ __ ___ _ ___| | __ _ _ __   __| |
-    | __| '__/ _ \/ _` / __| | | | '__/ _ \ / __| |/ _` | '_ \ / _` |
-    | |_| | |  __/ (_| \__ \ |_| | | |  __/ \__ \ | (_| | | | | (_| |
-    \__|_|  \___|\__,_|___/\__,_|_|  \___|_|___/_|\__,_|_| |_|\__,_|
-    ''')
+#Write your code below this line 👇
 
-    third = input("Now that you've made it to Treasure Island, you can dig or search the cave. \n Type Dig/Cave: ").lower()
-    if third == "dig":
-      print("You've found the treasure, you win!")
-    elif third == "cave":
-      print('''
-      _                     
-      | |                    
-      | |__   ___  __ _ _ __ 
-      | '_ \ / _ \/ _` | '__|
-      | |_) |  __/ (_| | |   
-      |_.__/ \___|\__,_|_|   
-                  ''')
-      print("You were eaten by a bear, game over.")
+choice = input('You\'re at a crossroad. Where do you want to go? Type "left" or "right"')
+
+if choice == "left":
+  second_choice = input('You\'ve come to a lake. There is an island in the middle of the lake. Type "wait" to wait for a boat. Type "swim" to swim across.')
+  if second_choice == "swim":
+    print('You get attacked by an angry trout. Game Over.')
+  else:
+    color = input('You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow and one blue. Which colour do you choose?')
+    if color == 'red':
+      print('It\'s a room full of fire. Game Over')
+    elif color == 'blue':
+      print("You enter a room of beasts. Game Over.")
+    else:
+      print("You win!")
+else:
+  print('You fell into a hole. Game Over.')
+  
