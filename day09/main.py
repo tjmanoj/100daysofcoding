@@ -1,34 +1,27 @@
 from replit import clear
 from art import logo
 
+print(logo)
+print("Welcome to the secret auction program.")
 
-auction_info = []
-auction = True
+bidding_dictionary = {}
 
-def add_new_bidder(bidder_name, bidder_amount):
-    new_bidder = {}
-    new_bidder["bid"] = bidder_amount
-    new_bidder["name"] = bidder_name
-    auction_info.append(new_bidder)
-
-while auction:
-  print(logo)
-  print("Welcome to the private bidding auction")
-  name  = input("What is your name?: ").title()
-  bid = float(input("How much would you like to bid?: $"))
-  add_new_bidder(bidder_name = name, bidder_amount = bid)
-
-  others = input("Are there any other bidders for this auction? Type 'yes' or 'no'.\n")
-  if others == 'no':
-    auction = False
-    highest_bidder = 0
-    count = -1
-    for e in auction_info:
-      if e['bid'] > highest_bidder:
-          highest_bidder = e['bid']
-          count += 1
-    winner = auction_info[count]['name']
-    print(f"The highest bidder is {winner} with a ${highest_bidder}")
-    print("Thank you for your participation.")
+choice = True 
+while choice:
+  name = input("What is your name?:")
+  bid = int(input("What's your bid?: $"))
+  user_choice = input("Are there any other bidders? Type 'yes' or 'no'.")
+  bidding_dictionary[name] = bid
+  if user_choice == "no":
+    clear()
+    choice = False 
+    winner_name = ""
+    final_bid = 0
+    for bidder in bidding_dictionary:
+      if bidding_dictionary[bidder] > final_bid:
+        winner_name = bidder 
+        final_bid = bidding_dictionary[bidder]
+    print(f"The winner is {winner_name} with a bid of ${final_bid}")
   else:
     clear()
+  
