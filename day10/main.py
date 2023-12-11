@@ -1,52 +1,53 @@
 from art import logo
-
-
+from replit import clear
 def add(n1, n2):
   return n1 + n2
-
 def subtract(n1, n2):
-  return n1 - n2
-
+  return n1 - n2 
 def multiply(n1, n2):
-  return n1 * n2
-
+  return n1 * n2 
 def divide(n1, n2):
   return n1 / n2
 
-operations = {
-'+': add, 
-'-': subtract,
-'*': multiply,
-'/': divide,
+calci_dicts = {
+  "+": add,
+  "-": subtract,
+  "*": multiply,
+  "/": divide
 }
 
-def calculator():
+def calci():
+  clear()
   print(logo)
+  num1 = float(input("What's the first number?: "))  
+  for operand in calci_dicts:
+    print(operand)
 
-  num1 = float(input("What is the first number?: "))
-  run = True
-  while run: 
-    for e in operations:
-      print(e)
-    perform = input("Type a math operation: ") 
-    num2 = float(input("What is the next number?: "))
-
-    calculation = operations[perform]
-    answer = calculation(num1, num2)
-
-    print(f"{num1} {perform} {num2} = {answer}")
-    print(f"Type 'y' to continue calculating with {answer}, type 'n' to exit or type 'new' for a brand new calculation")
-    continue_calc = input("Type y/n/new: ")
-    if continue_calc == 'y':
-      run = True
+  choice = True
+  while choice:
+  
+    operation_symbol = input("Pick an operation?: ")   
+    if operation_symbol not in ('+','-','*','/'):
+      print("Invalid operation!!")
+      exit(1)
+    compute = calci_dicts[operation_symbol]
+    num2 = float(input("What's the next number?: "))
+    answer = compute(num1, num2)
+    
+    print(f"{num1} {operation_symbol} {num2} = {answer}")
+     
+  
+    if input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start new: ") == "y":
       num1 = answer
-    elif continue_calc == 'n':
-      run = False
-      print("\nGoodbye.")
-    elif continue_calc == 'new':
-      calculator()
     else:
-      print("Invalid response.")
-      run = False
-      print("\nGoodbye.")
-calculator()
+      choice = False
+      calci()
+calci()
+
+
+
+
+
+
+
+
