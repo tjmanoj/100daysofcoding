@@ -1,44 +1,36 @@
-from art import logo
+from art import logo 
 import random
-from replit import clear
 
+answer = random.randint(1,100)
 
-def guess_the_number():
-  guess_this = random.randint(1, 100)
-  print("Welcome to: ")
-  print(logo)
-  # print(f"The number is {guess_this}")
-  print("I'm thinking of a number between 1 and 100, try to guess it")
-  difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
-  if difficulty == 'easy':
-    guesses = 10
-  elif difficulty == 'hard':
-    guesses = 5
-
-  while guesses > 0:
-    if guesses > 1:
-      print(f"You have {guesses} guesses left for the number that I'm thinking of.")
-    else:
-      print(f"Last try to guess the number that I'm thinking of.")
-    attempt = int(input("Take you guess: "))
-    if attempt > guess_this:
+def game(chance):
+  chances = chance
+  while chances != 0:
+    print(f"You have {chances} attempts to guess the number.")
+    guess = int(input("Make a guess: "))
+    if guess == answer:
+      print(f"You got it. The answer was {answer}")
+      chances = 0
+    elif guess > answer:
       print("Too high.")
-    elif attempt < guess_this:
+      if chances != 1:
+        print("Guess again.")
+      chances -= 1
+    else:
       print("Too low.")
-    if guesses == 1:
-      print("Game over.")
-    elif attempt == guess_this:
-      def game_over():
-        print(f"Correct! The answer was {guess_this}. Thanks for completing that! 😁")
-        return guesses - guesses
-      guesses = game_over()
-    guesses -= 1
+      if chances != 1:
+        print("Guess again.")
+      chances -= 1
   
-  play_again = input("\nDo you want to play again? Type 'y' if yes and 'n' to quit.")
-  if play_again == 'y':
-    clear()
-    guess_the_number()
-  else:
-    print("Goodbye.")
+  if chances == 0:
+    print("You've run out of guesses, you lose🥺")
 
-guess_the_number()
+print(logo)
+print("Welcome to guessing game!!")
+print("Guess a number between 1 and 100.")
+level = input("Choose hard or easy level?: ")
+
+if level == "easy":
+  game(5)
+else:
+  game(10)
