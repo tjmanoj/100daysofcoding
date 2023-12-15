@@ -1,52 +1,32 @@
-from art import logo, vs
-from game_data import data
+from art import logo
+from art import vs
 from replit import clear
+from game_data import data 
 import random
+score = 0
 
+print(logo)
 
-def profile():
-  random_number = random.randint(0, 49)
-  name = data[random_number]['name']
-  follower_count = data[random_number]['follower_count']
-  description = data[random_number]['description']
-  country = data[random_number]['country']
-  compare = (f"{name}, a {description}, from {country}.")
-  return compare, follower_count
+a = random.choice(data)
+b = random.choice(data)
+def compare(a, b):
+  print(f"Compare A: {a['name']}, {a['description']}, {a['country']}")
+  print(vs)
+  print(f"Against B: {b['name']}, {b['description']}, {b['country']}")
 
-def higher_lower():
-  profile_a, followers_a = profile()
-  profile_b, followers_b = profile()
-  if followers_a == followers_b:
-    profile_b, followers_b = profile()
-  score = 0
-  correct = True
-
-  while correct:
+  answer = "A" if a['follower_count'] > b['follower_count'] else "B"
+  choice = input("Who has more followers? Type 'A' or 'B':")
+  
+  if choice == answer:
+    global score
+    score += 1
     clear()
     print(logo)
-    if score > 0:
-      print(f"Correct! Your current score is: {score}.")
-    # print (followers_a, followers_b)
-    print(f"Compare A: {profile_a}")
-    print(vs)
-    print(f"Compare B: {profile_b}")
+    print(f"You're right! Current score: {score}")
+    compare(b, random.choice(data))
+  else:
+    clear()
+    print(logo)
+    print(f"Sorry, that's wrong. Final score: {score}")
 
-    a_or_b = input("\nWho do you think has more followers? Type 'a', or 'b': ").lower()
-    if a_or_b == 'a' and followers_a >= followers_b:
-      score += 1
-      profile_b, followers_b = profile()
-    elif a_or_b == 'b' and followers_a <= followers_b:
-      score += 1
-      profile_a, followers_a = profile()
-    elif a_or_b == 'a' and followers_a < followers_b:
-      print(f"\nIncorrect, your final score is {score}.")
-      correct = False
-    elif a_or_b == 'b' and followers_a > followers_b:
-      print(f"\nIncorrect, your final score is {score}.")
-      correct = False
-  play_again = input("\nDo you want to play again? Type 'y' or 'n': ")
-  if play_again == 'y':
-    higher_lower()
-  elif play_again == 'n':
-    print("Thanks for playing!")
-higher_lower()
+compare(a,b)
