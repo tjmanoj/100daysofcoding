@@ -32,13 +32,14 @@ resources = {
 }
 
 
-def empty_ingredient():
-    if resources["water"] == 0:
-        print("Sorry there is not enough water")
-    elif resources["milk"] == 0:
-        print("Sorry there is not enough milk")
+def empty_ingredient(drink):
+    if drink == "espresso":
+        scarcity = "water" if resources["water"] < 50 else "coffee"
+    elif drink == "latte":
+        scarcity = "water" if resources["water"] < 200 else "milk"
     else:
-        print("Sorry there is not enough coffee")
+        scarcity = "water" if resources["water"] < 250 else "milk"
+    print(f"Sorry there is not enough {scarcity}")
 
 
 def print_report():
@@ -92,7 +93,8 @@ def make_drink(drink):
         resources["money"] += drink_amount
 
         if coins > drink_amount:
-            print(f"Here is ${coins - drink_amount} in change")
+            change = round((coins - drink_amount),2)
+            print(f"Here is ${change} in change")
         print(f"Here is you {drink}☕. Enjoy!")
 
     else:
@@ -107,10 +109,12 @@ while is_machine_on:
         is_machine_on = False
     elif user_choice == "report":
         print_report()
+    elif user_choice not in ["espresso", "latte", "cappuccino"]:
+        print("Drink not available!!")
     else:
         availability = check_ingredient(user_choice)
         if availability:
             make_drink(user_choice)
         else:
-            empty_ingredient()
+            empty_ingredient(user_choice)
 
