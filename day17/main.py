@@ -4,14 +4,12 @@ from quiz_brain import QuizBrain
 
 question_bank = []
 for question in question_data:
-    question_text = question['text']
-    question_answer = question['answer']
-    new_question = Question(question_text, question_answer)
-    question_bank.append(new_question)
+    question_bank.append(Question(question['question'], question['correct_answer']))
 
-quiz = QuizBrain(question_bank)
+ques = QuizBrain(question_bank)
 
-while quiz.still_has_questions():
-    quiz.next_question()
+while ques.still_has_questions():
+    ques.next_question()
 
-print(f"Thanks for completing that!\nYour final score is: {quiz.score}/{quiz.question_number}")
+print("You've completed the quizz!!")
+print(f"Your final score is: {ques.score}/{len(question_bank)}")
