@@ -1,43 +1,37 @@
-import turtle as t
+import turtle
 import random
-t.Turtle()
+# import colorgram
+# colors = colorgram.extract("hirst_painting.jpg", 40)
+#
+# list_of_colors = []
+# for i in colors:
+#     list_of_colors.append((i.rgb.r, i.rgb.g, i.rgb.b))
+# print(list_of_colors)
 
-color_list = [(236, 248, 243), (36, 95, 183), (236, 165, 79), (244, 223, 87), (215, 69, 105), (98, 197, 234),
-              (250, 51, 22), (203, 70, 21), (240, 106, 143), (185, 47, 90), (143, 233, 216), (252, 136, 166),
-              (165, 175, 233), (66, 45, 13), (72, 205, 170), (83, 187, 100), (20, 156, 51), (24, 36, 86), (252, 220, 0),
-              (164, 28, 8), (105, 39, 44), (250, 152, 2), (22, 151, 229), (108, 213, 249), (254, 12, 3), (38, 48, 98),
-              (98, 96, 186)]
+colors = [(235, 252, 243), (198, 13, 32), (248, 236, 25), (40, 76, 188), (244, 247, 253), (39, 216, 69), (238, 227, 5), (227, 159, 49), (29, 40, 154), (212, 76, 15), (17, 153, 17), (241, 36, 161), (195, 16, 12), (223, 21, 120), (68, 10, 31), (61, 15, 8), (223, 141, 206), (11, 97, 62), (219, 159, 11), (54, 209, 229), (19, 21, 49), (238, 157, 216), (79, 74, 212), (10, 228, 238), (73, 212, 168), (93, 233, 198), (65, 231, 239), (217, 88, 51), (6, 68, 42), (176, 176, 233), (239, 168, 161), (249, 8, 48), (5, 246, 222), (15, 76, 110), (243, 15, 14), (38, 43, 221)]
+bubu = turtle.Turtle()
+turtle.colormode(255)
 
-random_color = (random.choice(color_list))
-t.colormode(255)
-t.penup()
-t.speed("fastest")
-t.hideturtle()
+bubu.speed("fastest")
+bubu.setheading(220)
+bubu.penup()
+bubu.forward(350)
+print(bubu.pos())
+bubu.setheading(0)
+for j in range(10):
+    for i in range(10):
+        bubu.dot(20, random.choice(colors))
+        bubu.penup()
+        bubu.forward(50)
+        bubu.pendown()
+        bubu.dot(20)
+    if j != 9:
+        bubu.penup()
+        bubu.setheading(90)
+        bubu.forward(50)
+        bubu.setheading(180)
+        bubu.forward(500)
+        bubu.setheading(360)
 
-
-def left_up():
-    t.setheading(90)
-    t.forward(50)
-    t.setheading(0)
-
-
-def right_up():
-    t.setheading(90)
-    t.forward(50)
-    t.setheading(180)
-
-
-for _ in range(5):
-    for _ in range(10):
-        t.dot(20, (random.choice(color_list)))
-        t.setheading(180)
-        t.forward(50)
-    left_up()
-    for _ in range(10):
-        t.forward(50)
-        t.dot(20, (random.choice(color_list)))
-    right_up()
-
-
-screen = t.Screen()
-screen.exitonclick()
+my_screen = turtle.Screen()
+my_screen.exitonclick()
