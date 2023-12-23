@@ -18,6 +18,7 @@ bubu.penup()
 bubu.forward(350)
 print(bubu.pos())
 bubu.setheading(0)
+
 for j in range(10):
     for i in range(10):
         bubu.dot(20, random.choice(colors))
