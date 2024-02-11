@@ -3,7 +3,7 @@
 
 ![100-days-of-code](https://user-images.githubusercontent.com/98851253/155425637-9ac7250e-52a3-429a-a679-ac619f5ff6ea.gif)
 
-Most projects ideas come from the Udemy course: [100 Days of Code: The Complete Python Pro Bootcamp](https://www.udemy.com/course/100-days-of-code/)
+<!--Most projects ideas come from the Udemy course: [100 Days of Code: The Complete Python Pro Bootcamp](https://www.udemy.com/course/100-days-of-code/) -->
 
 
 ## 🔰 Beginner 
@@ -35,6 +35,7 @@ Most projects ideas come from the Udemy course: [100 Days of Code: The Complete 
 - [Day 24:](https://github.com/phillipai/100-days-of-code-python/tree/main/day24) Files, Directories and Paths
 - [Day 25:](https://github.com/phillipai/100-days-of-code-python/tree/main/day25) Working with CSV Data and the Pandas Library
 - [Day 26:](https://github.com/phillipai/100-days-of-code-python/tree/main/day26) List Comprehension and the Nato Alphabet
+<!--
 - [Day 27:](https://github.com/phillipai/100-days-of-code-python/tree/main/day27) Tkinter, *args, **kwargs and Creating GUI Programs
 - [Day 28:](https://github.com/phillipai/100-days-of-code-python/tree/main/day28) Tkinter, Dynamic Typing and the Pomodoro GUI Application
 - [Day 29:](https://github.com/phillipai/100-days-of-code-python/tree/main/day29) Building a Password Manager GUI App with Tkinter
@@ -153,3 +154,4 @@ Most projects ideas come from the Udemy course: [100 Days of Code: The Complete 
 - Authentication
 - Web Design
 - Deployment with GitHub Pages, Heroku and GUnicorn
+-->
