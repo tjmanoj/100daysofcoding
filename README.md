@@ -1,4 +1,4 @@
-<h1 align="right">100 Days of Coding
+<h1 align="left">100 Days of Coding
 </h1>
 
 
